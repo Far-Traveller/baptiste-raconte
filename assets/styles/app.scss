@@ -9,14 +9,90 @@
 
 
 /************** variables **************/
+$dark-gray: #353344;
+$light-gray: #7E7D88;
+$white: #FFFFFF;
+$blue: #20078A;
+$dark-yellow: #FFC80A;
+$light-yellow: #FFE381;
 
 /************** base styles **************/
+#navbar-logo {
+  width: 70px;
+  height: 70px;
+}
+a {
+  text-decoration:none;
+}
+ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
 
 /************** fonts **************/
+h1 {
+  font-family: 'Pinyon Script', serif;
+  color: $dark-gray;
+  font-size: 2em;
+}
+h2 {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+}
+p, a, label{
+  font-family: 'Signika Negative', sans serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: $white;
+}
 
 /************** mobile styles **************/
+    /**** NAVBAR ****/
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,200,10)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler.navbar-toggler {
+  border-color: $dark-yellow;
+}
+.navbar {
+  background-color: $dark-gray;
+}
+.nav-link {
+  color: $light-yellow;
+}
+.nav-link:hover, .active {
+  color: $dark-yellow;
+}
+
+    /**** FOOTER ****/
+footer {
+  text-align: center;
+  background-color: $dark-gray;
+}
+footer div i {
+  color: $dark-yellow;
+  margin: 0 15px;
+}
+footer div p {
+  color: $dark-yellow;
+  margin-bottom: 10px;
+}
+
+
 
 /************** large tablets & laptop styles **************/
 @media screen and (min-width: 768px) {
+  /**** NAVBAR ****/
+  .nav-link {
+    font-size: 1.1em;
+  }
+  /**** FOOTER ****/
+  .footer-text {
+    float: left;
+  }
+  .footer-icons {
+    float: right;
+  }
 
 }
