@@ -29,18 +29,39 @@ ul {
   padding-left: 10px;
 }
 
+body {
+  background-color: $light-gray;
+}
+
+//Lines before and after titles
+.title-line:before, .title-line:after{
+  content:'';
+  display:inline-block;
+  vertical-align: middle;
+  width: 2rem;
+  height: .1rem;
+  background: $dark-gray
+}
+.title-line:before{
+  margin-right: .5rem;
+}
+.title-line:after{
+  margin-left: .5rem;
+}
+
 /************** fonts **************/
 h1 {
   font-family: 'Pinyon Script', serif;
   color: $dark-gray;
   font-size: 2em;
+  margin-bottom: 0;
 }
 h2 {
   font-family: 'Assistant', sans-serif;
   font-weight: 300;
   font-size: 1.6em;
 }
-p, a, label{
+p, a, label {
   font-family: 'Signika Negative', sans serif;
   font-weight: 400;
   font-size: 1em;
@@ -57,6 +78,10 @@ p, a, label{
 }
 .navbar {
   background-color: $dark-gray;
+  padding: 0;
+}
+.navbar-brand {
+  padding: 0;
 }
 .nav-link {
   color: $light-yellow;
@@ -79,10 +104,55 @@ footer div p {
   margin-bottom: 10px;
 }
 
+    /**** FORM ****/
+.title-container {
+  padding: 7% 0;
+  text-align: center;
+  background-color: $white;
+}
+.form-logo {
+  text-align: center;
+  padding-bottom: 40px;
+}
+.form-logo img {
+  height: 150px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+.form-container {
+  padding: 10% 15%;
+}
+form label {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.form-btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+
 
 
 /************** large tablets & laptop styles **************/
 @media screen and (min-width: 768px) {
+  /************** base styles **************/
+  //Lines before and after titles
+  .title-line:before, .title-line:after {
+    width: 3rem;
+  }
+
+  /************** fonts **************/
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  p, a, label {
+    font-size: 1.3em;
+  }
+
   /**** NAVBAR ****/
   .nav-link {
     font-size: 1.1em;
@@ -95,4 +165,37 @@ footer div p {
     float: right;
   }
 
+  /**** FORM ****/
+  .title-container {
+    padding: 5% 0;
+  }
+  .title-container {
+    padding: 4% 8%;
+    text-align: left;
+  }
+  .form-container {
+    min-width: 700px;
+    padding: 5% 5% 5% 0;
+    float: right;
+  }
+  .form-logo {
+    padding-top: 8%;
+    vertical-align: middle;
+    padding-right: 5%;
+  }
+  .form-logo img {
+    height: 200px;
+    filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+  }
+
+}
+
+@media screen and (min-width: 1250px) {
+  /**** FORM ****/
+  .form-container {
+    padding: 5% 5% 5% 0;
+  }
+  .form-logo img {
+    height:250px;
+  }
 }
