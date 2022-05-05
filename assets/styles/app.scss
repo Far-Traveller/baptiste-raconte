@@ -28,7 +28,6 @@ ul {
   list-style-type: none;
   padding-left: 10px;
 }
-
 body {
   background-color: $light-gray;
 }
@@ -49,6 +48,15 @@ body {
   margin-left: .5rem;
 }
 
+//Yellow line behind h2
+h2 {
+  background-image: url(/public/images/yellowline.png);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: bottom 15px left 5px;
+  padding: 20px 0 0 20px;
+}
+
 /************** fonts **************/
 h1 {
   font-family: 'Pinyon Script', serif;
@@ -58,8 +66,12 @@ h1 {
 }
 h2 {
   font-family: 'Assistant', sans-serif;
-  font-weight: 300;
+  color: $white;
+  font-weight: 200;
   font-size: 1.6em;
+}
+.h2-gray {
+  color: $dark-gray;
 }
 p, a, label {
   font-family: 'Signika Negative', sans serif;
@@ -131,7 +143,19 @@ form label {
   margin-bottom: 30px;
 }
 
-
+    /**** PROFIL ****/
+.white-background {
+  background-color: $white;
+}
+.info-container {
+  padding-top: 2%;
+}
+.info-div {
+  padding: 2% 0 2% 5%;
+}
+.info-div p {
+  color: $light-yellow;
+}
 
 
 

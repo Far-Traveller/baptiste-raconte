@@ -32,7 +32,7 @@
                             <a class="nav-link" href="">L'auteur</a>
                             <a class="nav-link" href="">Contact</a>
                             {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <a class="nav-link" href="">Mon profil</a>
+                                <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
                                 <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                             {% else %}
                                 <a {% if route_name == "app_login" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_login') }}">Connexion</a>
