@@ -29,7 +29,7 @@
                         <div class="navbar-nav ms-auto">
                             <a {% if route_name == "app_homepage" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_homepage') }}">Accueil</a>
                             <a class="nav-link" href="">Nouvelles</a>
-                            <a class="nav-link" href="">L'auteur</a>
+                            <a {% if route_name == "app_author" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_author') }}">L'auteur</a>
                             <a class="nav-link" href="">Contact</a>
                             {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_user') }}">Mon profil</a>

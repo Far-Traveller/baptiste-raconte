@@ -15,4 +15,12 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    #[Route('/auteur', name: 'app_author')]
+    public function author(): Response
+    {
+        return $this->render('home/author.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }
