@@ -14,6 +14,7 @@ class StoriesFixtures extends Fixture
         for ($i = 0; $i < 12; $i++) {
             $story = new Story();
             $story->setTitle('Nouvelle ' . $i+1);
+            $story->setSlug('nouvelle_'.$i+1);
             $story->setSummary("Kingdom Hearts débute sur l'Île du Destin où Sora, Riku et Kairi habitent. Les trois amis veulent quitter l'île pour explorer de nouveaux mondes et ont préparé un radeau à cet effet.");
             $story->setText("Je suis le roi de la danse Oh
                                     La jungle est à mes pieds

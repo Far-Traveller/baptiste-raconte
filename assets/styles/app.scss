@@ -218,6 +218,38 @@ footer div p {
   padding: 5%;
 }
 
+/**** STORY SHOW ****/
+#story-header {
+  background-color: $blue;
+  padding: 50px 30px 10px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+#story-header h1 {
+  color: $white;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.story-img {
+  width: 100%;
+  max-width: 500px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+.favorite {
+  text-align: right;
+  padding-top: 50px;
+}
+.favorite-text {
+  color: $dark-yellow;
+}
+#story-text {
+  background-color: $white;
+  padding: 50px 30px;
+}
+.story-p {
+  color: $dark-gray;
+  line-height: 2.5em;
+}
+
 /**** FORM ****/
 .title-container {
   padding: 7% 0;
@@ -345,6 +377,17 @@ form label {
   .summary {
     padding-right: 5%;
     font-size: 1.3em;
+  }
+
+  /**** STORY SHOW ****/
+  #story-header h1 {
+    margin: auto;
+  }
+  .story-img {
+    margin: auto;
+  }
+  #story-text {
+    padding: 50px 90px;
   }
 
   /**** FORM ****/
