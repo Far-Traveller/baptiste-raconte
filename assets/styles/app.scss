@@ -281,15 +281,29 @@ form label {
 .white-background {
   background-color: $white;
 }
-.info-container {
-  padding-top: 2%;
-}
-.info-div {
+#infos {
+  background-color: $light-gray;
   padding: 2% 0 2% 5%;
 }
 .info-div p {
   color: $light-yellow;
 }
+#favorites {
+  padding: 2% 0 2% 5%;
+}
+.favorites-empty {
+  text-align: center;
+}
+.fav-empty {
+  color: $dark-gray;
+  padding: 5% 2%;
+}
+.gif-sad {
+  width: 100%;
+  max-width: 500px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+
 
 /**** AUTHOR ****/
 .img-author {
@@ -428,6 +442,18 @@ form label {
   .text-author {
     margin-top: 40px;
     padding: 0 0 0 40px;
+  }
+
+  /**** PROFIL ****/
+  #infos, #favorites {
+    padding: 2% 5%;
+  }
+  .info-div p {
+    padding: 2% 0 0 4%;
+  }
+  .fav-empty {
+    padding: 2% 2%;
+    margin: 0;
   }
 }
 

@@ -7,7 +7,9 @@
         <div class="container">
             <div class="flex-container-reverse">
                 <h1>{{ story.title }}</h1>
-                <img loading="lazy" class="story-img" src="{{ asset('images/story2.png') }}" alt="illustration"/>
+                <img loading="lazy" class="rounded-circle img-last-news" src="{{ story.image }}" alt="illustration"/>
+
+                <img loading="lazy" class="story-img" src="{{ story.image }}" alt="illustration"/>
             </div>
             <div class="favorite">
                 <p class="favorite-text"><i class="fa-solid fa-heart"></i> Mettre en favoris</p>
