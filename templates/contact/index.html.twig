@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-4">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="title-container">
+        <h1 class="title-line">Contact</h1>
+    </div>
+    <div class="container flex-container-reverse">
+        <div class="form-container">
+            {{ form_start(contactForm) }}
+            <div class="form-group">
+                {{ form_row(contactForm.fullName, {
+                    label: 'Nom Prénom',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(contactForm.email, {
+                    label: 'Adresse e-mail',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(contactForm.subject, {
+                    label: 'Sujet',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(contactForm.message, {
+                    label: 'Votre message',
+                    attr: {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="form-btn">
+                <button class="btn btn-dark" type="submit">
+                    Envoyer
+                </button>
+            </div>
+            {{ form_end(contactForm) }}
+        </div>
+        <div class="form-logo">
+            <img loading="lazy" src="{{ asset('images/logobleu.png') }}" alt="logo-baptiste-raconte"/>
+        </div>
+    </div>
+
+{% endblock %}
