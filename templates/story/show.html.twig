@@ -5,11 +5,12 @@
 {% block body %}
     <section id="story-header">
         <div class="container">
-            <h1>{{ story.title }}</h1>
-            <img loading="lazy" class="favorite-img" src="{{ story.image }}" alt="illustration"/>
+            <div class="flex-container-reverse">
+                <h1>{{ story.title }}</h1>
+                <img loading="lazy" class="story-img" src="{{ asset('images/story2.png') }}" alt="illustration"/>
+            </div>
             <div class="favorite">
-                <i class="fa-solid fa-heart"></i>
-                <p class="favorite-text">Mettre en favoris</p>
+                <p class="favorite-text"><i class="fa-solid fa-heart"></i> Mettre en favoris</p>
             </div>
         </div>
     </section>

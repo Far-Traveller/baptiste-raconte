@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Story;
 use App\Repository\StoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,15 @@ class StoryController extends AbstractController
         return $this->render('story/index.html.twig', [
             'controller_name' => 'StoryController',
             'stories' => $stories
+        ]);
+    }
+
+    #[Route('/nouvelles/{slug}', name: 'app_story_show')]
+    public function show(Story $story): Response
+    {
+        return $this->render('story/show.html.twig', [
+            'controller_name' => 'StoryController',
+            'story' => $story
         ]);
     }
 }
