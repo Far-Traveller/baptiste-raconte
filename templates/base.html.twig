@@ -30,7 +30,7 @@
                             <a {% if route_name == "app_homepage" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_homepage') }}">Accueil</a>
                             <a {% if route_name == "app_story" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_story') }}">Nouvelles</a>
                             <a {% if route_name == "app_author" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_author') }}">L'auteur</a>
-                            <a class="nav-link" href="">Contact</a>
+                            <a {% if route_name == "app_contact" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_contact') }}">Contact</a>
                             {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
                                 <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
