@@ -199,6 +199,25 @@ footer div p {
   padding-left: 5%;
 }
 
+/**** STORIES ****/
+#stories-title {
+  background-image: url(/public/images/storiespicture.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px 30px;
+  text-align: center;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+#stories-title h1 {
+  color: $white;
+  font-size: 3em;
+  padding: 20px 5px;
+}
+#stories-list {
+  padding: 5%;
+}
+
 /**** FORM ****/
 .title-container {
   padding: 7% 0;
@@ -230,15 +249,12 @@ form label {
 .white-background {
   background-color: $white;
 }
-
 .info-container {
   padding-top: 2%;
 }
-
 .info-div {
   padding: 2% 0 2% 5%;
 }
-
 .info-div p {
   color: $light-yellow;
 }
@@ -249,18 +265,15 @@ form label {
   text-align: center;
   margin: 40px 0;
 }
-
 .author-picture {
   border-radius: 30px;
   height: 100%;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
-
 .text-author {
   margin: auto;
   padding: 0 40px;
 }
-
 
 /************** large tablets & laptop styles **************/
 @media screen and (min-width: 768px) {
@@ -294,10 +307,10 @@ form label {
   }
 
   /**** HOME ****/
-  #welcome {
+  #welcome, #stories-title {
     padding: 80px 40px;
   }
-  #welcome h1 {
+  #welcome h1, #stories-title h1 {
     font-size: 3.8em;
     padding: 30px 10px;
   }
@@ -316,8 +329,8 @@ form label {
     padding-top: 2%;
     padding-bottom: 2%;
   }
-  #last-news {
-    padding: 80px 40px;
+  #last-news, #goals, #stories-list{
+    padding: 40px 40px;
   }
   .col-last-news {
     padding: 2% 3%;
@@ -373,19 +386,18 @@ form label {
     margin-top: 40px;
     padding: 0 0 0 40px;
   }
-
 }
 
 @media screen and (min-width: 1250px) {
   /**** HOME ****/
-  #welcome {
+  #welcome, #stories-title {
     padding: 150px 40px;
   }
-  #welcome h1 {
+  #welcome h1, #stories-title h1 {
     font-size: 4.2em;
     padding: 40px 10px;
   }
-  #quotation {
+  #quotation, #goals, #stories-list {
     padding: 2% 5%;
   }
   .quote {

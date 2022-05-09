@@ -47,6 +47,18 @@ class StoryRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Story[]
+     */
+    public function findLatest(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Story[] Returns an array of Story objects
     //  */

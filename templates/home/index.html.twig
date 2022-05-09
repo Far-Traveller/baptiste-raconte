@@ -39,35 +39,19 @@
 
     <section id="last-news">
         <div class="container">
-            <h2 class="h1 title-line home-h2">Les dernières Nouvelles</h2>
+            <h2 class="h1 title-line home-h2">Les Dernières Nouvelles</h2>
             <div class="row">
-                <a class="col-lg-4 col-last-news">
-                    <div class="text-center" href="#">
-                        <img loading="lazy" class="rounded-circle img-last-news" src="{{ asset('images/story1.png') }}" alt="illustration"/>
-                    </div>
-                    <h3 class="h2 yellow-line">Un Sommeil Trop Profond</h3>
-                    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus nibh vitae nisl gravida posuere. Aenean porttitor tortor non lacus sodales tincidunt vitae sed dui.
-                    </p>
-                </a>
-                <a class="col-lg-4 col-last-news" href="#">
-                    <div class="text-center">
-                        <img loading="lazy" class="rounded-circle img-last-news" src="{{ asset('images/story2.png') }}" alt="illustration"/>
-                    </div>
-                    <h3 class="h2 yellow-line">La Belle Mission du Père Noël</h3>
-                    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus nibh vitae nisl gravida posuere. Aenean porttitor tortor non lacus sodales tincidunt vitae sed dui.</p>
-                </a>
-                <a class="col-lg-4 col-last-news" href="#">
-                    <div class="text-center">
-                        <img loading="lazy" class="rounded-circle img-last-news" src="{{ asset('images/story3.png') }}" alt="illustration"/>
-                    </div>
-                    <h3 class="h2 yellow-line">Le Vestige d'un Autre Temps</h3>
-                    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus nibh vitae nisl gravida posuere. Aenean porttitor tortor non lacus sodales tincidunt vitae sed dui.
-                    </p>
-                </a>
+                {% for story in latest %}
+                    <a class="col-lg-4 col-last-news" href="#">
+                        <div class="text-center">
+                            <img loading="lazy" class="rounded-circle img-last-news" src="{{ asset('images/story1.png') }}" alt="illustration"/>
+                        </div>
+                        <h3 class="h2 yellow-line">{{ story.title }}</h3>
+                        <p class="summary">{{ story.summary }}</p>
+                    </a>
+                {% endfor %}
             </div>
         </div>
-
-
     </section>
 
 {% endblock %}
