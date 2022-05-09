@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Story;
 use App\Repository\StoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,9 +25,37 @@ class StoryController extends AbstractController
     #[Route('/nouvelles/{slug}', name: 'app_story_show')]
     public function show(Story $story): Response
     {
+        $favorite_stories = $this->getUser()->getStories();
+
         return $this->render('story/show.html.twig', [
             'controller_name' => 'StoryController',
-            'story' => $story
+            'story' => $story,
+            'favorite_stories' => $favorite_stories
+        ]);
+    }
+
+    #[Route('/nouvelles/{slug}/favorite', name: 'app_story_favorite')]
+    public function favoriteStory(Story $story, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        $favorite_stories = $this->getUser()->getStories()->toArray();
+
+        if (in_array($story, $favorite_stories)) {
+            $user->removeStory($story);
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->json([
+                'message' => 'STORY_REMOVED'
+            ]);
+        }
+
+        $user->addStory($story);
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->json([
+            'message' => 'STORY_FAVORITE'
         ]);
     }
 }

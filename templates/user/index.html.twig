@@ -3,38 +3,52 @@
 {% block title %}Mon profil{% endblock %}
 
 {% block body %}
-        <div class="title-container">
-            <h1 class="title-line">Mon profil</h1>
+    <div class="title-container">
+        <h1 class="title-line">Mon profil</h1>
+    </div>
+    <section id="infos">
+        <div class="container">
+            <h2 class="yellow-line">Mes informations</h2>
+            <div class="info-div">
+                <p>Nom : {{ app.user.lastname }}</p>
+                <p>Prénom : {{ app.user.firstname }}</p>
+                <p>Adresse-email : {{ app.user.email }}</p>
+            </div>
         </div>
-        <section id="infos">
-            <div class="container">
-                <h2 class="yellow-line">Mes informations</h2>
-                <div class="info-div">
-                    <p>Nom : {{ app.user.lastname }}</p>
-                    <p>Prénom : {{ app.user.firstname }}</p>
-                    <p>Adresse-email : {{ app.user.email }}</p>
-                </div>
-            </div>
-        </section>
-        <section id="favorites" class="white-background">
-            <div class="container">
-                <h2 class="h2-gray yellow-line">Mes favoris</h2>
-                <div class="favorites">
-                    {% if favorite_stories is empty %}
-                        <div class="favorites-empty">
-                            <img loading="lazy" class="gif-sad" src="{{ asset('images/giphy.gif') }}" alt="illustration"/>
-                            <p class="fav-empty"><i class="fa-solid fa-face-sad-cry"></i> On dirait bien que tu n'as
-                                mis aucune nouvelle en favoris...
-                                <br/> Mais aucun problème, il n'est jamais trop tard :</p>
-                            <a class="btn btn-dark" href="{{ path('app_story') }}">Les nouvelles sont par ici <i
-                                        class="fa-solid fa-face-laugh-wink"></i></a>
-                        </div>
-                    {% else %}
+    </section>
+    <section id="favorites" class="white-background">
+        <div class="container">
+            <h2 class="h2-gray yellow-line">Mes favoris</h2>
+            <div class="favorites">
+                {% if favorite_stories is empty %}
+                    <div class="favorites-empty">
+                        <img loading="lazy" class="gif-sad" src="{{ asset('images/favoritesSadGif.gif') }}"
+                             alt="illustration"/>
+                        <p class="fav-empty"><i class="fa-solid fa-face-sad-cry"></i> On dirait bien que tu n'as
+                            mis aucune nouvelle en favoris...
+                            <br/> Mais aucun problème, il n'est jamais trop tard :</p>
+                        <a class="btn btn-dark" href="{{ path('app_story') }}">Les nouvelles sont par ici <i
+                                    class="fa-solid fa-face-laugh-wink"></i></a>
+                    </div>
+                {% else %}
+                    <div class="row">
                         {% for story in favorite_stories %}
-                            <p class="h2-gray">{{ story.title }}</p>
+                            <a class="col-lg-2" href="{{ path('app_story_show', {slug: story.slug}) }}">
+                                <div class="text-center">
+                                    <img loading="lazy" class="rounded-circle img-fav-full" src="{{ story.image }}"
+                                         alt="illustration"/>
+                                </div>
+                                <p class="fav-full-p">{{ story.title }}</p>
+                                <p class="fav-full-icon"><i class="fa-solid fa-circle-minus"></i></p>
+                            </a>
                         {% endfor %}
-                    {% endif %}
-                </div>
+                    </div>
+                {% endif %}
             </div>
-        </section>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('user') }}
 {% endblock %}
