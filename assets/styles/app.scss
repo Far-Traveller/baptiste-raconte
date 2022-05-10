@@ -194,6 +194,16 @@ footer div p {
   width: 180px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+.div-last-news:hover .img-last-news {
+  transform: scale(1.15);
+}
+//.div-last-news img {
+//  object-fit: cover;
+//  transition: transform .25s ease-in-out;
+//}
+//.div-last-news:hover img {
+//  transform: scale(1.25) rotate(10deg);
+//}
 .summary {
   padding-left: 5%;
 }
@@ -216,6 +226,36 @@ footer div p {
 #stories-list {
   padding: 5%;
 }
+//.col-last-news {
+//  border : 2px solid $light-gray;
+//  -webkit-transition: all 0.2s;
+//  -moz-transition: all 0.2s;
+//  -ms-transition: all 0.2s;
+//  -o-transition: all 0.2s;
+//  transition: all 0.2s;
+//}
+//.col-last-news:hover {
+//  border : 2px solid $light-yellow;
+//  //box-shadow: 8px 8px 10px 0 rgba(0,0,0,0.5);
+//}
+//.story-title::before {
+//  content: '';
+//  position: absolute;
+//  width: 100%;
+//  height: 4px;
+//  border-radius: 4px;
+//  background-color: $light-yellow;
+//  bottom: 0;
+//  left: 0;
+//  transform-origin: right;
+//  transform: scaleX(0);
+//  transition: transform .3s ease-in-out;
+//}
+//.story-titlea:hover::before {
+//  transform-origin: left;
+//  transform: scaleX(1);
+//}
+
 
 /**** STORY SHOW ****/
 #story-header {
@@ -395,6 +435,8 @@ form label {
   }
   .col-last-news {
     padding: 2% 3%;
+  }
+  .a-last-news {
     font-size: 1em;
   }
   .img-last-news {

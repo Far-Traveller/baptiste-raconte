@@ -15,13 +15,11 @@
                         <a class="favorite-text" href="{{ path('app_story_favorite', {slug: story.slug}) }}">
                             <i class="fa-solid fa-heart"></i>
                             <span class="favorite-span"> Déjà en favoris</span>
-                            <p class="empty"></p>
                         </a>
                     {% else %}
                         <a class="favorite-text" href="{{ path('app_story_favorite', {slug: story.slug}) }}">
                             <i class="fa-regular fa-heart"></i>
                             <span class="favorite-span"> Mettre en favoris</span>
-                            <p class="empty"></p>
                         </a>
                     {% endif %}
                 </div>
@@ -31,7 +29,7 @@
 
     <section id="story-text">
         <div class="container">
-            <p class="story-p">{{ story.text }}</p>
+            <div class="story-p">{{ story.text | raw }}</div>
         </div>
     </section>
 {% endblock %}
