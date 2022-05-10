@@ -7,7 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400&family=Pinyon+Script&family=Signika+Negative:wght@300;400;500;600&display=swap');
 
-
 /************** variables **************/
 $dark-gray: #353344;
 $light-gray: #7E7D88;
@@ -232,11 +231,11 @@ footer div p {
 .story-img {
   width: 100%;
   max-width: 500px;
+  padding-bottom: 50px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
 .favorite {
   text-align: right;
-  padding-top: 50px;
 }
 .favorite-text {
   color: $dark-yellow;
@@ -309,21 +308,16 @@ form label {
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
 .img-fav-full {
-  width: 100%;
-  padding-bottom: 3%;
-  padding-top: 3%;
-  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 3%;
+  margin-top: 3%;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
 .fav-full-p {
   text-align: center;
   color: $light-gray;
   margin-bottom: 0;
-}
-.fav-full-icon {
-  color: #c22c2c;
-  text-align: center;
-  font-size: 1.25em;
 }
 
 /**** AUTHOR ****/
@@ -479,12 +473,13 @@ form label {
   .fav-full-p {
     font-size: 0.9em;
   }
-  .fav-full-icon {
-    font-size: 0.875em;
+  .img-fav-full {
+    width: 120px;
+    height: 120px;
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1200px) {
   /**** HOME ****/
   #welcome, #stories-title {
     padding: 150px 40px;
@@ -516,5 +511,11 @@ form label {
   }
   .text-author {
     padding: 40px 30px 0 50px;
+  }
+
+  /**** PROFIL ****/
+  .img-fav-full {
+    width: 140px;
+    height: 140px;
   }
 }

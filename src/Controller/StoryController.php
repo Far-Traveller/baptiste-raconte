@@ -25,7 +25,11 @@ class StoryController extends AbstractController
     #[Route('/nouvelles/{slug}', name: 'app_story_show')]
     public function show(Story $story): Response
     {
-        $favorite_stories = $this->getUser()->getStories();
+        $favorite_stories = [0];
+
+        if ($this->getUser()) {
+            $favorite_stories = $this->getUser()->getStories();
+        }
 
         return $this->render('story/show.html.twig', [
             'controller_name' => 'StoryController',
