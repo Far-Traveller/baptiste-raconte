@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Contact;
 use App\Entity\Story;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -21,13 +22,18 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        //return parent::index();
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
 
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
-         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-         return $this->redirect($adminUrlGenerator->setController(StoryCrudController::class)->generateUrl());
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
+         $urls = $adminUrlGenerator
+             ->setController(StoryCrudController::class)
+             ->setController(ContactCrudController::class)
+             ->generateUrl();
+
+         return $this->redirect($urls);
     }
 
     public function configureDashboard(): Dashboard
@@ -41,6 +47,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_ADMIN');
         yield MenuItem::section('Gestion')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)->setPermission('ROLE_ADMIN');
 
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
