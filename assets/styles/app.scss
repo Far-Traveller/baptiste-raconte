@@ -241,6 +241,9 @@ footer div p {
 .favorite-text {
   color: $dark-yellow;
 }
+.favorite-text:hover {
+  color: $light-gray;
+}
 #story-text {
   background-color: $white;
   padding: 50px 30px;
@@ -281,14 +284,46 @@ form label {
 .white-background {
   background-color: $white;
 }
-.info-container {
-  padding-top: 2%;
-}
-.info-div {
-  padding: 2% 0 2% 5%;
+#infos {
+  background-color: $light-gray;
+  padding: 2% 5%;
 }
 .info-div p {
   color: $light-yellow;
+}
+#favorites {
+  padding: 2% 5%;
+}
+#favorites h2 {
+  padding-bottom: 2%;
+}
+.favorites-empty {
+  text-align: center;
+}
+.fav-empty {
+  color: $dark-gray;
+  padding: 5% 2%;
+}
+.gif-sad {
+  max-width: 500px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+.img-fav-full {
+  width: 100%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+  max-width: 200px;
+  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+}
+.fav-full-p {
+  text-align: center;
+  color: $light-gray;
+  margin-bottom: 0;
+}
+.fav-full-icon {
+  color: #c22c2c;
+  text-align: center;
+  font-size: 1.25em;
 }
 
 /**** AUTHOR ****/
@@ -428,6 +463,24 @@ form label {
   .text-author {
     margin-top: 40px;
     padding: 0 0 0 40px;
+  }
+
+  /**** PROFIL ****/
+  #infos, #favorites {
+    padding: 2% 5%;
+  }
+  .info-div p {
+    padding: 2% 0 0 4%;
+  }
+  .fav-empty {
+    padding: 2% 2%;
+    margin: 0;
+  }
+  .fav-full-p {
+    font-size: 0.9em;
+  }
+  .fav-full-icon {
+    font-size: 0.875em;
   }
 }
 

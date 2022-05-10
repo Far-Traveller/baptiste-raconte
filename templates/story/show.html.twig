@@ -7,11 +7,25 @@
         <div class="container">
             <div class="flex-container-reverse">
                 <h1>{{ story.title }}</h1>
-                <img loading="lazy" class="story-img" src="{{ asset('images/story2.png') }}" alt="illustration"/>
+                <img loading="lazy" class="story-img" src="{{ story.image }}" alt="illustration"/>
             </div>
-            <div class="favorite">
-                <p class="favorite-text"><i class="fa-solid fa-heart"></i> Mettre en favoris</p>
-            </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="favorite">
+                    {% if story in favorite_stories %}
+                        <a class="favorite-text" href="{{ path('app_story_favorite', {slug: story.slug}) }}">
+                            <i class="fa-solid fa-heart"></i>
+                            <span class="favorite-span"> Déjà en favoris</span>
+                            <p class="empty"></p>
+                        </a>
+                    {% else %}
+                        <a class="favorite-text" href="{{ path('app_story_favorite', {slug: story.slug}) }}">
+                            <i class="fa-regular fa-heart"></i>
+                            <span class="favorite-span"> Mettre en favoris</span>
+                            <p class="empty"></p>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     </section>
 
@@ -20,4 +34,8 @@
             <p class="story-p">{{ story.text }}</p>
         </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('story') }}
 {% endblock %}
