@@ -36,8 +36,8 @@ class StoryCrudController extends AbstractCrudController
             TextField::new('summary', 'Résumé'),
             TextEditorField::new('text', 'Texte'),
             SlugField::new('slug')->setTargetFieldName('title'),
-            DateTimeField::new('createdAt')->hideOnForm(),
-            DateTimeField::new('updatedAt')->hideOnForm()
+            DateTimeField::new('createdAt', 'Création')->hideOnForm(),
+            DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
         ];
     }
 
