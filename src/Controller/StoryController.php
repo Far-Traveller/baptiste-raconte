@@ -46,7 +46,9 @@ class StoryController extends AbstractController
             $entityManager->flush();
 
             return $this->json([
-                'message' => 'STORY_REMOVED'
+                'message' => 'STORY_REMOVED',
+                'class' => 'fa-regular fa-heart',
+                'txt' => ' Mettre en favoris'
             ]);
         }
 
@@ -55,7 +57,9 @@ class StoryController extends AbstractController
         $entityManager->flush();
 
         return $this->json([
-            'message' => 'STORY_FAVORITE'
+            'message' => 'STORY_FAVORITE',
+            'class' => 'fa-solid fa-heart',
+            'txt' => ' Déjà en favoris'
         ]);
     }
 }
