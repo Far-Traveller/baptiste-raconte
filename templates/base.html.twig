@@ -28,11 +28,20 @@
                     <div class="collapse navbar-collapse ms-auto" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-auto">
                             <a {% if route_name == "app_homepage" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_homepage') }}">Accueil</a>
-                            <a class="nav-link" href="">Nouvelles</a>
-                            <a class="nav-link" href="">L'auteur</a>
-                            <a class="nav-link" href="">Contact</a>
-                            <a class="nav-link" href="">Connexion</a>
-                            <a class="nav-link" href="">Inscription</a>
+                            <a {% if route_name == "app_story" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_story') }}">Nouvelles</a>
+                            <a {% if route_name == "app_author" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_author') }}">L'auteur</a>
+                            <a {% if route_name == "app_contact" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_contact') }}">Contact</a>
+                            {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a class="nav-link" aria-current="page" href="{{ path('admin') }}">Admin</a>
+                                {% else %}
+                                    <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
+                                {% endif %}
+                                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                            {% else %}
+                                <a {% if route_name == "app_login" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+                                <a {% if route_name == "app_register" %} class="nav-link active" {% else %} class="nav-link" {% endif %} aria-current="page" href="{{ path('app_register') }}">Inscription</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

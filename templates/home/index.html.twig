@@ -1,21 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section id="welcome">
+        <div class="container">
+            <p class="h2">Venez découvrir</p>
+            <h1>Les Aventures de Guillaume</h1>
+            <a class="btn btn-dark" href="{{ path('app_story') }}">Osez entrer dans un nouvel univers ...</a>
+        </div>
+    </section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <h2>Sous-titre</h2>
-    <p>Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+    <section id="goals">
+        <div class="container">
+            <h2 class="h1 title-line home-h2">Un site qui remplit 4 objectifs</h2>
+            <ul class="goals-ul">
+                <li class="goals-li">Devenir une star de la <strong>littérature</strong>, de la <strong>comédie</strong>
+                    et le <strong>héros</strong> de vos enfants
+                </li>
+                <li class="goals-li">Partager mes <strong>nouvelles</strong> pour vous faire découvrir mon <strong>style
+                        inégalable</strong></li>
+                <li class="goals-li">Lorem ipsum suspendisse ac iaculis nunc aenean porttitor tortor non lacus sodales
+                    tincidunt
+                </li>
+                <li class="goals-li">Phasellus ultrices congue nunc vitae egestas</li>
+            </ul>
+        </div>
+    </section>
 
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/aurore/Library/CloudStorage/OneDrive-KEDGEBusinessSchool/developpement/Site_Baptiste/baptiste-raconte/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/aurore/Library/CloudStorage/OneDrive-KEDGEBusinessSchool/developpement/Site_Baptiste/baptiste-raconte/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section id="quotation">
+        <div class="container quotation-container">
+            <div class="quotation-flex-1">
+                <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                <p class="quote">Lorem ipsum consectetur adipiscing conus ultraces elit lacus sodales tincidunt.</p>
+            </div>
+            <div class="quotation-flex-2">
+                <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                <p class="author-quote">Baptiste</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="last-news">
+        <div class="container">
+            <h2 class="h1 title-line home-h2">Les Dernières Nouvelles</h2>
+            <div class="row">
+                {% for story in latest %}
+                    {% include "story/_content.html.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
 {% endblock %}
