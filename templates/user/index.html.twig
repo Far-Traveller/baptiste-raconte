@@ -35,11 +35,10 @@
                         {% for story in favorite_stories %}
                             <a class="col-lg-2" href="{{ path('app_story_show', {slug: story.slug}) }}">
                                 <div class="text-center">
-                                    <img loading="lazy" class="rounded-circle img-fav-full" src="{{ story.image }}"
-                                         alt="illustration"/>
+                                    <img loading="lazy" class="rounded-circle img-fav-full"
+                                         src="/images/upload/{{ story.image }}" alt="illustration"/>
                                 </div>
                                 <p class="fav-full-p">{{ story.title }}</p>
-                                <p class="fav-full-icon"><i class="fa-solid fa-circle-minus"></i></p>
                             </a>
                         {% endfor %}
                     </div>

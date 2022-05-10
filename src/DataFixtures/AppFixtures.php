@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
 
         $userAdmin = new User();
         $userAdmin->setEmail('admin@admin.fr');
-        $userAdmin->setRoles(['ROLE_ARRAY']);
+        $userAdmin->setRoles(['ROLE_ADMIN']);
         $userAdmin->setFirstname($firstNames[0]);
         $userAdmin->setLastname($lastNames[0]);
         $password = $this->hasher->hashPassword($userAdmin, 'Admin123+');
