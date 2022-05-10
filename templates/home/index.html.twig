@@ -46,18 +46,7 @@
             <h2 class="h1 title-line home-h2">Les Dernières Nouvelles</h2>
             <div class="row">
                 {% for story in latest %}
-                    <div class="col-lg-4 col-last-news">
-                        <div class="text-center">
-                            <a href="{{ path('app_story_show', {slug: story.slug}) }}">
-                                <img loading="lazy" class="rounded-circle img-last-news"
-                                     src="/images/upload/{{ story.image }}" alt="illustration"/>
-                            </a>
-                        </div>
-                        <a class="a-last-news" href="{{ path('app_story_show', {slug: story.slug}) }}">
-                            <h3 class="h2 yellow-line">{{ story.title }}</h3>
-                            <p class="summary">{{ story.summary }}</p>
-                        </a>
-                    </div>
+                    {% include "story/_content.html.twig" %}
                 {% endfor %}
             </div>
         </div>
