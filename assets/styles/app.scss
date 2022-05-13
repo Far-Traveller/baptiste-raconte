@@ -20,16 +20,20 @@ $light-yellow: #FFE381;
   width: 70px;
   height: 70px;
 }
+
 a {
   text-decoration: none;
 }
+
 ul {
   list-style-type: none;
   padding-left: 10px;
 }
+
 body {
   background-color: $light-gray;
 }
+
 //Lines before and after titles
 .title-line:before, .title-line:after {
   content: '';
@@ -39,12 +43,15 @@ body {
   height: .1rem;
   background: $dark-gray
 }
+
 .title-line:before {
   margin-right: .5rem;
 }
+
 .title-line:after {
   margin-left: .5rem;
 }
+
 //Yellow line behind h2
 .yellow-line {
   background-image: url(/public/images/yellowline.png);
@@ -94,12 +101,15 @@ p, a, label, li {
 .navbar-brand {
   padding: 0;
 }
-
 .nav-link {
   color: $light-yellow;
+
+  &:hover {
+    color: $dark-yellow;
+  }
 }
 
-.nav-link:hover, .active {
+.active {
   color: $dark-yellow;
 }
 
@@ -107,16 +117,16 @@ p, a, label, li {
 footer {
   text-align: center;
   background-color: $dark-gray;
-}
 
-footer div i {
-  color: $dark-yellow;
-  margin: 0 15px;
-}
+  i {
+    color: $dark-yellow;
+    margin: 0 15px;
+  }
 
-footer div p {
-  color: $dark-yellow;
-  margin-bottom: 10px;
+  p {
+    color: $dark-yellow;
+    margin-bottom: 10px;
+  }
 }
 
 /**** HOME ****/
@@ -128,45 +138,56 @@ footer div p {
   padding: 50px 30px;
   text-align: center;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    color: $dark-yellow;
+    font-size: 3em;
+    padding: 20px 5px;
+  }
 }
-#welcome p {
-  margin: 0;
-}
-#welcome h1 {
-  color: $dark-yellow;
-  font-size: 3em;
-  padding: 20px 5px;
-}
+
 #goals {
   padding: 5%;
 }
+
 .home-h2 {
   text-align: center;
 }
+
 .goals-ul {
   list-style-image: url(/public/images/yellowdot.png);
 }
+
 .goals-li {
   margin-top: 15px;
 }
+
 #quotation {
   background: $white;
   padding: 7% 4%;
 }
+
 .quotation-container {
   background-color: $blue;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
   border-radius: 70px;
 }
+
 .marks {
   margin: 5%;
   height: 30px;
 }
+
 .quote {
   padding: 15% 15% 0 0;
   font-size: 1.2em;
   margin-bottom: 0;
 }
+
 .author-quote {
   font-size: 1.4em;
   font-weight: 600;
@@ -174,29 +195,40 @@ footer div p {
   padding-bottom: 5%;
   margin-bottom: 0;
 }
+
 .quotation-flex-1 {
   display: flex;
 }
+
 .quotation-flex-2 {
   display: flex;
   flex-direction: row-reverse;
 }
+
 #last-news {
   padding: 7%;
   width: 100%;
 }
+
 .col-last-news {
   padding: 5% 0;
 }
+
 .img-last-news {
   margin: auto;
   height: 180px;
   width: 180px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .div-last-news:hover .img-last-news {
   transform: scale(1.15);
 }
+
+.summary {
+  padding-left: 5%;
+}
+
 //.div-last-news img {
 //  object-fit: cover;
 //  transition: transform .25s ease-in-out;
@@ -204,9 +236,6 @@ footer div p {
 //.div-last-news:hover img {
 //  transform: scale(1.25) rotate(10deg);
 //}
-.summary {
-  padding-left: 5%;
-}
 
 /**** STORIES ****/
 #stories-title {
@@ -217,15 +246,18 @@ footer div p {
   padding: 50px 30px;
   text-align: center;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+
+  h1 {
+    color: $white;
+    font-size: 3em;
+    padding: 20px 5px;
+  }
 }
-#stories-title h1 {
-  color: $white;
-  font-size: 3em;
-  padding: 20px 5px;
-}
+
 #stories-list {
   padding: 5%;
 }
+
 //.col-last-news {
 //  border : 2px solid $light-gray;
 //  -webkit-transition: all 0.2s;
@@ -256,37 +288,43 @@ footer div p {
 //  transform: scaleX(1);
 //}
 
-
 /**** STORY SHOW ****/
 #story-header {
   background-color: $blue;
   padding: 50px 30px 10px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+
+  h1 {
+    color: $white;
+    padding-bottom: 50px;
+    text-align: center;
+  }
 }
-#story-header h1 {
-  color: $white;
-  padding-bottom: 50px;
-  text-align: center;
-}
+
 .story-img {
   width: 100%;
   max-width: 500px;
   padding-bottom: 50px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .favorite {
   text-align: right;
 }
+
 .favorite-text {
   color: $dark-yellow;
+
+  &:hover {
+    color: $light-gray;
+  }
 }
-.favorite-text:hover {
-  color: $light-gray;
-}
+
 #story-text {
   background-color: $white;
   padding: 50px 30px;
 }
+
 .story-p {
   color: $dark-gray;
   line-height: 2.5em;
@@ -298,21 +336,26 @@ footer div p {
   text-align: center;
   background-color: $white;
 }
-.form-logo {
-  text-align: center;
-  padding-bottom: 40px;
-}
-.form-logo img {
-  height: 150px;
-  filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
-}
+
 .form-container {
   padding: 10% 15%;
 }
+
+.form-logo {
+  text-align: center;
+  padding-bottom: 40px;
+
+  img {
+    height: 150px;
+    filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+  }
+}
+
 form label {
   padding-top: 25px;
   padding-bottom: 10px;
 }
+
 .form-btn, .author-btn {
   text-align: center;
   margin-top: 30px;
@@ -323,30 +366,38 @@ form label {
 .white-background {
   background-color: $white;
 }
+
 #infos {
   background-color: $light-gray;
   padding: 2% 5%;
 }
+
 .info-div p {
   color: $light-yellow;
 }
+
 #favorites {
   padding: 2% 5%;
+
+  h2 {
+    padding-bottom: 2%;
+  }
 }
-#favorites h2 {
-  padding-bottom: 2%;
-}
+
 .favorites-empty {
   text-align: center;
 }
+
 .fav-empty {
   color: $dark-gray;
   padding: 5% 2%;
 }
+
 .gif-sad {
   max-width: 500px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .img-fav-full {
   width: 200px;
   height: 200px;
@@ -354,6 +405,7 @@ form label {
   margin-top: 3%;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .fav-full-p {
   text-align: center;
   color: $light-gray;
@@ -366,11 +418,13 @@ form label {
   text-align: center;
   margin: 40px 0;
 }
+
 .author-picture {
   border-radius: 30px;
   height: 100%;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .text-author {
   margin: auto;
   padding: 0 40px;
@@ -399,6 +453,7 @@ form label {
   .nav-link {
     font-size: 1.1em;
   }
+
   /**** FOOTER ****/
   .footer-text {
     float: left;
@@ -410,10 +465,11 @@ form label {
   /**** HOME ****/
   #welcome, #stories-title {
     padding: 80px 40px;
-  }
-  #welcome h1, #stories-title h1 {
-    font-size: 3.8em;
-    padding: 30px 10px;
+
+    h1 {
+      font-size: 3.8em;
+      padding: 30px 10px;
+    }
   }
   .home-h2 {
     text-align: left;
@@ -430,7 +486,7 @@ form label {
     padding-top: 2%;
     padding-bottom: 2%;
   }
-  #last-news, #goals, #stories-list{
+  #last-news, #goals, #stories-list {
     padding: 40px 40px;
   }
   .col-last-news {
@@ -463,11 +519,13 @@ form label {
 
   /**** FORM ****/
   .title-container {
-    padding: 5% 0;
-  }
-  .title-container {
     padding: 4% 8%;
     text-align: left;
+  }
+  .form-container {
+    min-width: 700px;
+    padding: 0;
+    margin: auto;
   }
   .flex-container-reverse {
     display: flex;
@@ -477,19 +535,15 @@ form label {
     display: flex;
     flex-direction: row;
   }
-  .form-container {
-    min-width: 700px;
-    padding: 0;
-    margin: auto;
-  }
   .form-logo {
     padding: 0;
     margin: auto;
-  }
-  .form-logo img {
-    height: 200px;
-    padding-right: 20px;
-    filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+
+    img {
+      height: 200px;
+      padding-right: 20px;
+      filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
+    }
   }
 
   /**** AUTHOR ****/
@@ -525,10 +579,11 @@ form label {
   /**** HOME ****/
   #welcome, #stories-title {
     padding: 150px 40px;
-  }
-  #welcome h1, #stories-title h1 {
-    font-size: 4.2em;
-    padding: 40px 10px;
+
+    h1 {
+      font-size: 4.2em;
+      padding: 40px 10px;
+    }
   }
   #quotation, #goals, #stories-list {
     padding: 2% 5%;

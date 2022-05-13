@@ -1,0 +1,20 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/user.js": "/build/user.js",
+  "build/story.js": "/build/story.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--34436a.js": "/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_array--34436a.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-09d390.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-09d390.js",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_pro-54b034.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_pro-54b034.js",
+  "build/images/storiespicture.jpg": "/build/images/storiespicture.60288780.jpg",
+  "build/fonts/fa-solid-900.ttf": "/build/fonts/fa-solid-900.e615bbcb.ttf",
+  "build/fonts/fa-brands-400.ttf": "/build/fonts/fa-brands-400.b823fc0d.ttf",
+  "build/fonts/fa-solid-900.woff2": "/build/fonts/fa-solid-900.59edf72a.woff2",
+  "build/fonts/fa-brands-400.woff2": "/build/fonts/fa-brands-400.ebb7a127.woff2",
+  "build/images/welcomepicture.jpg": "/build/images/welcomepicture.e872c7b8.jpg",
+  "build/fonts/fa-regular-400.ttf": "/build/fonts/fa-regular-400.0d03b1bb.ttf",
+  "build/fonts/fa-regular-400.woff2": "/build/fonts/fa-regular-400.0caf4c6c.woff2",
+  "build/images/yellowline.png": "/build/images/yellowline.c8ec0202.png",
+  "build/images/yellowdot.png": "/build/images/yellowdot.c78e8a93.png"
+}

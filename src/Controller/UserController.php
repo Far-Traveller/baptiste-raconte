@@ -11,6 +11,10 @@ class UserController extends AbstractController
     #[Route('/profil', name: 'app_user')]
     public function index(): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
+
         $favorite_stories = $this->getUser()->getStories();
 
         return $this->render('user/index.html.twig', [
