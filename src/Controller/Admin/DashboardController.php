@@ -48,7 +48,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Gestion')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)->setPermission('ROLE_ADMIN');
-
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
