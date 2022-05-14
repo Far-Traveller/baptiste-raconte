@@ -28,25 +28,29 @@ class DashboardController extends AbstractDashboardController
 
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
-         $urls = $adminUrlGenerator
-             ->setController(StoryCrudController::class)
-             ->setController(ContactCrudController::class)
-             ->generateUrl();
+        $urls = $adminUrlGenerator
+            ->setController(StoryCrudController::class)
+            ->setController(ContactCrudController::class)
+            ->generateUrl();
 
-         return $this->redirect($urls);
+        return $this->redirect($urls);
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('<img src="images/logobleu.png" alt="Logo" width="50px" height="50px"><span> Baptiste Raconte</span>');
+            ->setTitle('<img src="images/logobleu.png" alt="Logo" width="50px" height="50px">
+                             <span> Baptiste Raconte</span>');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_ADMIN');
         yield MenuItem::section('Gestion')->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)
+            ->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)
+            ->setPermission('ROLE_ADMIN');
     }
 }
+
