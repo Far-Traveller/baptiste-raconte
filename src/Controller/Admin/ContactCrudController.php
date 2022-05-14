@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ContactCrudController extends AbstractCrudController
 {
@@ -12,14 +15,16 @@ class ContactCrudController extends AbstractCrudController
         return Contact::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('fullName', 'Nom Prénom'),
+            TextField::new('subject', 'Sujet'),
+            TextField::new('message'),
+            DateTimeField::new('createdAt', 'Création')->hideOnForm()
         ];
     }
-    */
+
 }
