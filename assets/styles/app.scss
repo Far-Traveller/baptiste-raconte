@@ -330,6 +330,28 @@ footer {
   line-height: 2.5em;
 }
 
+.btn-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 5px;
+  bottom: 130px;
+  cursor: pointer;
+}
+
+.icon-up {
+  color: $yellow;
+}
+
+.btn-hidden {
+  visibility: hidden;
+}
+
+.btn-show {
+  visibility: visible;
+}
+
 /**** FORM ****/
 .title-container {
   padding: 7% 0;
@@ -515,6 +537,10 @@ form label {
   }
   #story-text {
     padding: 50px 90px;
+  }
+  .btn-up {
+    right: 20px;
+    bottom: 100px;
   }
 
   /**** FORM ****/

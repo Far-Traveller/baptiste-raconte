@@ -37,3 +37,28 @@ function selectable(element, bool) {
 let body = document.body;
 selectable(body, false);
 
+//Function for the button to go up
+function scrollBtn() {
+    console.log("scroll");
+    let btnUp = document.querySelector('.btn-up');
+    if (window.scrollY > 100) {
+        btnUp.classList.remove('btn-hidden');
+        btnUp.classList.add('btn-show');
+    } else {
+        btnUp.classList.add('btn-hidden');
+        btnUp.classList.remove('btn-show');
+    }
+}
+window.addEventListener('scroll', scrollBtn);
+
+
+function scrollUp() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
+}
+const btnUp = document.querySelector('.btn-up');
+btnUp.addEventListener('click', scrollUp);
+
