@@ -35,7 +35,7 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            //Envoie email
+            //Send mail
             $email = (new TemplatedEmail())
                 ->from($contact->getEmail())
                 ->to('admin@baptiste-raconte.fr')
