@@ -321,7 +321,6 @@ footer {
 }
 
 #story-text {
-  background-color: $white;
   padding: 50px 30px;
 }
 
@@ -340,7 +339,7 @@ footer {
   cursor: pointer;
 }
 
-.icon-up {
+.icon-up, .icon-light {
   color: $yellow;
 }
 
@@ -350,6 +349,48 @@ footer {
 
 .btn-show {
   visibility: visible;
+}
+
+.btn-light-night{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 5px;
+  bottom: 170px;
+  cursor: pointer;
+}
+
+.icon-night {
+  color: $light-gray;
+}
+
+.icon-night:hover {
+  color: $dark-gray;
+}
+
+.icon-light:hover {
+  color: $light-yellow;
+}
+
+.light-bg {
+  background-color: $white;
+}
+
+.night-bg {
+  background-color: $dark-gray;
+}
+
+.night-p {
+  color: $white;
+}
+
+.btn-light {
+  background-color: $dark-gray;
+}
+
+.btn-light:hover {
+  background-color: $dark-gray;
 }
 
 /**** FORM ****/
@@ -531,6 +572,7 @@ form label {
   /**** STORY SHOW ****/
   #story-header h1 {
     margin: auto;
+    padding-left: 20px;
   }
   .story-img {
     margin: auto;
@@ -541,6 +583,10 @@ form label {
   .btn-up {
     right: 20px;
     bottom: 100px;
+  }
+  .btn-light-night {
+    right: 20px;
+    bottom: 140px;
   }
 
   /**** FORM ****/
