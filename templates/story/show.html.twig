@@ -3,6 +3,21 @@
 {% block title %}{{ story.title }}{% endblock %}
 
 {% block body %}
+
+    <section id="story-btn">
+        <div class="btn-light-night btn-night">
+            <i class="fa-solid fa-moon fa-2xl icon-night"></i>
+        </div>
+
+        <div class="btn-light-night btn-light btn-hidden">
+            <i class="fa-solid fa-sun fa-2xl icon-light"></i>
+        </div>
+
+        <div class="btn-up btn-hidden">
+            <i class="fa-solid fa-circle-chevron-up fa-2xl icon-up"></i>
+        </div>
+    </section>
+
     <section id="story-header">
         <div class="container">
             <div class="flex-container-reverse">
@@ -27,11 +42,12 @@
         </div>
     </section>
 
-    <section id="story-text">
+    <section id="story-text" class="light-bg">
         <div class="container">
             <div class="story-p">{{ story.text | raw }}</div>
         </div>
     </section>
+
 {% endblock %}
 
 {% block javascripts %}
