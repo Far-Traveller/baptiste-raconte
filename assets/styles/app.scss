@@ -425,6 +425,17 @@ form label {
   margin-bottom: 30px;
 }
 
+.btn-forgotten-password {
+  padding-left: 10px;
+  color: $white;
+  font-style: italic;
+  font-weight: 300;
+
+  &:hover {
+    color: $dark-yellow;
+  }
+}
+
 /**** PROFIL ****/
 .white-background {
   background-color: $white;
@@ -673,7 +684,11 @@ form label {
     height: 250px;
   }
 
-  /**** AUTHOR ****/
+  .btn-forgotten-password {
+    font-size: 1em;
+  }
+
+    /**** AUTHOR ****/
   .img-author {
     height: 400px;
     padding-top: 50px;

@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
+{% apply inline_css %}
+
         <h1>Message de {{ contact.fullName }}</h1>
         <p>Email : {{ contact.email }}</p>
         <p>Sujet : {{ contact.subject }}</p>
@@ -11,5 +7,4 @@
         <div>
             {{ contact.message|raw }}
         </div>
-    </body>
-</html>
+{% endapply %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ResetPasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -20,9 +22,9 @@ class SecurityController extends AbstractController
     #[Route(path: '/connexion', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-         if ($this->getUser()) {
-             return $this->redirectToRoute('app_homepage');
-         }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -39,11 +41,11 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/oubli-mot-de-passe', name: 'forgotten_password')]
-    public function forgottenPassword(Request $request,
-                                      UserRepository $userRepository,
+    public function forgottenPassword(Request                 $request,
+                                      UserRepository          $userRepository,
                                       TokenGeneratorInterface $tokenGeneratorInterface,
-                                      EntityManagerInterface $entityManager,
-                                      MailerInterface $mailer
+                                      EntityManagerInterface  $entityManager,
+                                      MailerInterface         $mailer
     ): Response
     {
         $form = $this->createForm(ResetPasswordRequestFormType::class);
@@ -55,7 +57,7 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $userRepository->findOneByEmail($form->get('email')->getData());
 
-            if($user){
+            if ($user) {
                 // Generate token for reinitialization
                 $token = $tokenGeneratorInterface->generateToken();
                 $user->setResetToken($token);
@@ -98,9 +100,47 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/oubli-mot-de-passe/{token}', name: 'reset_password')]
-    public function resetPassword(): Response
+    public function resetPassword(
+        string                      $token,
+        Request                     $request,
+        UserRepository              $userRepository,
+        EntityManagerInterface      $entityManager,
+        UserPasswordHasherInterface $userPasswordHasher
+    ): Response
     {
+        // Check if token is in database
+        $user = $userRepository->findOneByResetToken($token);
 
+        // Token exists
+        if ($user) {
+            $form = $this->createForm(ResetPasswordFormType::class);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                // Erase reset Token + set new Password
+                $user->setResetToken('');
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                        $user,
+                        $form->get('plainPassword')->getData()
+                    )
+                );
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Mot de passe changé avec succès');
+                return $this->redirectToRoute('app_login');
+            }
+
+            return $this->render('security/reset_password.html.twig', [
+                'resetPasswordForm' => $form->createView()
+            ]);
+        }
+
+        // Token doesn't exist
+        $this->addFlash('danger', 'Jeton invalide');
+        return $this->redirectToRoute('app_login');
     }
 
 }
