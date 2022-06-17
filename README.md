@@ -41,4 +41,4 @@ $ composer require symfony/web-server-bundle --dev
 $ php bin/console server:start
 ```
 
-Le site est en ligne ici : https://dashboard.heroku.com/apps/baptiste-raconte
+Le site est en ligne ici : https://baptiste-raconte.herokuapp.com/
