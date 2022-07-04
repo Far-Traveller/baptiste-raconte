@@ -14,7 +14,7 @@
                 {% endif %}
 
                 <label for="inputEmail">Adresse e-mail</label>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="sheldon_cooper@tbbt.fr" required autofocus>
                 <label for="inputPassword">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
@@ -26,6 +26,7 @@
                     <button class="btn btn-dark" type="submit">
                         Connexion
                     </button>
+                    <a class="btn-forgotten-password" href="{{ path('forgotten_password') }}">Mot de passe oublié</a>
                 </div>
             </form>
         </div>

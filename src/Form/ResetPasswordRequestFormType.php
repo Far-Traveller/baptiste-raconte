@@ -2,38 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ContactFormType extends AbstractType
+class ResetPasswordRequestFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fullName', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Croft Lara'
-                ]
-            ])
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'placeholder' => 'laracroft@tombraider.fr'
+                    'placeholder' => 'batman@chauvesouris.fr'
                 ]
             ])
-            ->add('subject', TextType::class)
-            ->add('message', TextareaType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Contact::class,
+            // Configure your form options here
         ]);
     }
 }

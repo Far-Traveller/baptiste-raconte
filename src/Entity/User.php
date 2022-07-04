@@ -34,8 +34,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $lastname;
 
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    private $resetToken;
+
     #[ORM\ManyToMany(targetEntity: Story::class)]
     private $stories;
+
+
 
     public function __construct()
     {
@@ -132,6 +137,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
         return $this;
     }
