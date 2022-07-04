@@ -40,15 +40,9 @@
                         attr: {'class': 'form-control'}
                     }) }}
                 </div>
-{#                <div class="form-group">#}
-{#                    {{ form_row(editInfosForm.password, {#}
-{#                        label: 'Mot de passe (à entrer pour modifier vos informations)',#}
-{#                        attr: {'class': 'form-control'}#}
-{#                    }) }}#}
-{#                </div>#}
                 <div class="form-btn">
                     <button class="btn btn-dark" type="submit">
-                        Modifier
+                        Modifier Informations
                     </button>
                 </div>
             {{ form_end(editInfosForm) }}
@@ -58,8 +52,25 @@
         <div class="container">
             <h2 class="yellow-line">Modifier mon mot de passe</h2>
             <div class="info-div">
-
-
+                {{ form_start(editPasswordForm) }}
+                <div class="form-group">
+                    {{ form_row(editPasswordForm.plainPassword, {
+                        label: 'Mot de passe actuel',
+                        attr: {'class': 'form-control'}
+                    }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(editPasswordForm.newPassword, {
+                        label: 'Nouveau mot de passe',
+                        attr: {'class': 'form-control'}
+                    }) }}
+                </div>
+                <div class="form-btn">
+                    <button class="btn btn-dark" type="submit">
+                        Modifier Mot de Passe
+                    </button>
+                </div>
+                {{ form_end(editPasswordForm) }}
             </div>
         </div>
     </section>
