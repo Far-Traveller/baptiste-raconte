@@ -46,7 +46,7 @@
                             <a class="nav-link" aria-current="page" href="{{ path('admin') }}">Admin</a>
                         {% else %}
                             <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %}
-                                    aria-current="page" href="{{ path('app_user', {id: app.user.id}) }}">Mon profil</a>
+                                    aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
                         {% endif %}
                         <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                     {% else %}
