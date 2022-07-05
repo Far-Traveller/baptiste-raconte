@@ -1,0 +1,18 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable{% endblock %}
+
+{% block body %}
+    <div class="title-container">
+        <h1 class="title-line">Oups !</h1>
+    </div>
+
+    <div class="container error404">
+        <img loading="lazy" class="mountain" src="{{ asset('images/mountain404.png') }}"
+             alt="mountain"/>
+
+        <a class="btn btn-dark" href="{{ path('app_story') }}">Par ici !! Cette page existe, promis !</a>
+    </div>
+
+{% endblock %}
