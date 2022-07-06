@@ -44,10 +44,9 @@
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {% if is_granted('ROLE_ADMIN') %}
                             <a class="nav-link" aria-current="page" href="{{ path('admin') }}">Admin</a>
-                        {% else %}
-                            <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %}
-                                    aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
                         {% endif %}
+                        <a {% if route_name == "app_user" %} class="nav-link active" {% else %} class="nav-link" {% endif %}
+                                aria-current="page" href="{{ path('app_user') }}">Mon profil</a>
                         <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                     {% else %}
                         <a {% if route_name == "app_login" %} class="nav-link active" {% else %} class="nav-link" {% endif %}

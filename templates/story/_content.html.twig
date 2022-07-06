@@ -1,8 +1,13 @@
 <div class="col-lg-4 col-last-news">
     <div class="text-center div-last-news">
         <a href="{{ path('app_story_show', {slug: story.slug}) }}">
+            {% if story.image %}
             <img loading="lazy" class="rounded-circle img-last-news"
                  src="/images/upload/{{ story.image }}" alt="illustration"/>
+            {% else %}
+                <img loading="lazy" class="rounded-circle img-last-news"
+                     src="{{ asset('images/logojaune.png') }}" alt="illustration"/>
+            {% endif %}
         </a>
     </div>
     <a class="a-last-news" href="{{ path('app_story_show', {slug: story.slug}) }}">

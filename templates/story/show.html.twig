@@ -22,7 +22,11 @@
         <div class="container">
             <div class="flex-container-reverse">
                 <h1>{{ story.title }}</h1>
-                <img loading="lazy" class="story-img" src="/images/upload/{{ story.image }}" alt="illustration"/>
+                {% if story.image %}
+                    <img loading="lazy" class="story-img" src="/images/upload/{{ story.image }}" alt="illustration"/>
+                {% else %}
+                    <img loading="lazy" class="story-img" src="{{ asset('images/logojaune.png') }}" alt="illustration"/>
+                {% endif %}
             </div>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <div class="favorite">
