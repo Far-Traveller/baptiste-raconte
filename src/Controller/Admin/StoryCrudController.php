@@ -48,7 +48,8 @@ class StoryCrudController extends AbstractCrudController
             TextField::new('summary', 'Résumé')
                 ->setHelp('Maximum 255 caractères'),
             TextEditorField::new('text', 'Texte'),
-            SlugField::new('slug')->setTargetFieldName('title')->hideOnForm(),
+            SlugField::new('slug')->setTargetFieldName('title')
+                ->setHelp('Ne doit pas être vide'),
             DateTimeField::new('createdAt', 'Création')->hideOnForm(),
             DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
         ];

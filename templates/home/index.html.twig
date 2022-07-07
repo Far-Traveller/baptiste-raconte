@@ -15,28 +15,84 @@
         <div class="container">
             <h2 class="h1 title-line home-h2">Un site qui remplit 4 objectifs</h2>
             <ul class="goals-ul">
-                <li class="goals-li">Devenir une star de la <strong>littérature</strong>, de la <strong>comédie</strong>
+                <li class="goals-li">
+                    Devenir une star de la <strong>littérature</strong>, de la <strong>comédie</strong>
                     et le <strong>héros</strong> de vos enfants
                 </li>
-                <li class="goals-li">Partager mes <strong>nouvelles</strong> pour vous faire découvrir mon <strong>style
+                <li class="goals-li">
+                    Partager mes <strong>nouvelles</strong> pour vous faire découvrir mon <strong>style
                         inégalable</strong></li>
-                <li class="goals-li">Lorem ipsum suspendisse ac iaculis nunc aenean porttitor tortor non lacus sodales
-                    tincidunt
+                <li class="goals-li">
+                    Partager quelques <strong>billets d'humeur</strong>, des <strong>vidéos inspirationnelles</strong>
+                    dans la partie
+                    blog <small><i>(en cours de développement)</i></small>
                 </li>
-                <li class="goals-li">Phasellus ultrices congue nunc vitae egestas</li>
+                <li class="goals-li">
+                    Et enfin, vous donnez envie d'offrir à votre proche le <strong>service exclusif</strong> Baptiste
+                    Raconte : une <strong>œuvre originale</strong> pour un <strong>cadeau original</strong> selon vos
+                    envies et l'heureux élu ! <small><i>(Me
+                            contacter pour en savoir plus)</i></small>
+                </li>
             </ul>
         </div>
     </section>
 
     <section id="quotation">
-        <div class="container quotation-container">
-            <div class="quotation-flex-1">
-                <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
-                <p class="quote">Lorem ipsum consectetur adipiscing conus ultraces elit lacus sodales tincidunt.</p>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="quotation-flex-2">
-                <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
-                <p class="author-quote">Baptiste</p>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container quotation-container">
+                        <div class="quotation-flex-1">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="quote">A un mètre de son objectif, Max se remit droite et activa son jetpack. Le moteur
+                                subsonique se mit en marche instantanément et les flammes léchèrent bientôt les jambes de
+                                l’aventurière. Elle put atterrir sur la planète d’un pas léger. Les ondulations, elle le savait,
+                                n’étaient que les réminiscences du rituel.
+                            </p>
+                        </div>
+                        <div class="quotation-flex-2">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="author-quote">Le vestige d’un autre temps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container quotation-container">
+                        <div class="quotation-flex-1">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="quote">Un homme étrange lui faisait face dans un costume rutilant de Père Noël. L’individu
+                                était immense. Si grand que c’en était presque effrayant. Il souriait horriblement et ses traits
+                                étaient tirés à l’extrême. Des larmes coulaient sur ses joues. On ne savait s’il riait ou s’il
+                                pleurait.
+                            </p>
+                        </div>
+                        <div class="quotation-flex-2">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="author-quote">La belle mission du Père Noël</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container quotation-container">
+                        <div class="quotation-flex-1">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="quote">Je plonge dans son regard et me perds dans un océan d’un bleu profond. Je continue
+                                l’exploration de ce corps que je connais si bien. Elle aussi m’observe et me sourit. Elle écarte
+                                l’une de mes mèches folles, puis je sens sa main me frôler et se poser sur ma joue. Quel
+                                bonheur !
+                            </p>
+                        </div>
+                        <div class="quotation-flex-2">
+                            <img loading="lazy" class="marks" src="{{ asset('images/quotationMark.png') }}" alt='"'/>
+                            <p class="author-quote">La quête d’une vie rêvée</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

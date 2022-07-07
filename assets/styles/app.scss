@@ -200,11 +200,10 @@ footer {
 }
 
 .author-quote {
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: 600;
   padding-top: 5%;
-  padding-bottom: 5%;
-  margin-bottom: 0;
+  margin-bottom: 8%;
 }
 
 .quotation-flex-1 {
@@ -441,7 +440,7 @@ form label {
 }
 
 .gif-sad {
-  max-width: 500px;
+  max-width: 300px;
   filter: drop-shadow(3px 2px 2px rgb(0 0 0 / 0.4));
 }
 
@@ -475,6 +474,19 @@ form label {
 .text-author {
   margin: auto;
   padding: 0 40px;
+}
+
+.thanks-author {
+  display: flex;
+  p, a {
+    font-style: italic;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $dark-yellow;
+    padding: 0 5px;
+  }
 }
 
 /**** LEGAL NOTICES ****/
@@ -570,7 +582,7 @@ form label {
   .author-quote {
     font-size: 1.8em;
     padding-top: 2%;
-    padding-bottom: 2%;
+    margin-bottom: 5%;
   }
   #last-news, #goals, #stories-list {
     padding: 40px 40px;
@@ -668,6 +680,10 @@ form label {
     width: 120px;
     height: 120px;
   }
+  .gif-sad {
+    max-width: 500px;
+  }
+
 
   /**** LEGAL NOTICES ****/
   .legal-container {
@@ -693,13 +709,15 @@ form label {
   #quotation, #goals, #stories-list {
     padding: 2% 5%;
   }
-  .quote {
-    padding: 5.5% 0 0 0;
+  .goals-li {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .author-quote {
     padding-top: 0;
-    padding-bottom: 2%;
+    margin-bottom: 3%;
   }
+
 
   /**** FORM ****/
   .form-logo img {
