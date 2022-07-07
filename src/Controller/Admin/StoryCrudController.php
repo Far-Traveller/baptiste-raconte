@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Story;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -22,6 +23,17 @@ class StoryCrudController extends AbstractCrudController
         return Story::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            // Change title of pages
+            ->setPageTitle('index', 'Nouvelles')
+            ->setPageTitle('edit', 'Modifier une nouvelle')
+            ->setPageTitle('new', 'Créer une nouvelle')
+
+            ;
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -32,10 +44,11 @@ class StoryCrudController extends AbstractCrudController
                 ->setUploadDir(self::PRODUCTS_UPLOAD_DIR)
                 ->setSortable(false)
                 ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]')
-            ,
-            TextField::new('summary', 'Résumé'),
+                ->setHelp('Mettre, de préférence, une image carrée'),
+            TextField::new('summary', 'Résumé')
+                ->setHelp('Maximum 255 caractères'),
             TextEditorField::new('text', 'Texte'),
-            SlugField::new('slug')->setTargetFieldName('title'),
+            SlugField::new('slug')->setTargetFieldName('title')->hideOnForm(),
             DateTimeField::new('createdAt', 'Création')->hideOnForm(),
             DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
         ];

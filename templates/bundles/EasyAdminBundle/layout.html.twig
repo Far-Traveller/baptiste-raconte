@@ -1,0 +1,15 @@
+{# templates/bundles/EasyAdminBundle/layout.html.twig #}
+
+{# DO THIS: the '!' symbol tells Symfony to extend from the original template #}
+{% extends '@!EasyAdmin/layout.html.twig' %}
+
+
+{% block header_logo %}
+    <a class="logo" title="{{ ea.dashboardTitle|striptags }}" href="{{ path('app_homepage') }}">
+        <span class="logo-custom">{{ ea.dashboardTitle|raw }}</span>
+        <span class="logo-compact"><i class="fas fa-home"></i></span>
+    </a>
+{% endblock header_logo %}
+
+
+
