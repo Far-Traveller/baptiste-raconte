@@ -2,28 +2,28 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Contact;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class ContactCrudController extends AbstractCrudController
+class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Contact::class;
+        return User::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
             // Change title of pages
-            ->setPageTitle('index', 'Messages')
-            ->setPageTitle('edit', 'Modifier un message')
-            ->setPageTitle('new', 'Créer un message')
+            ->setPageTitle('index', 'Utilisateurs')
+            ->setPageTitle('edit', 'Modifier un utilisateur')
+            ->setPageTitle('new', 'Créer un utilisateur')
 
             ;
     }
@@ -33,12 +33,10 @@ class ContactCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('fullName', 'Nom Prénom')->hideOnForm(),
-            EmailField::new('email', 'Email')->hideOnForm(),
-            TextField::new('subject', 'Sujet')->hideOnForm(),
-            TextField::new('message')->hideOnForm(),
-            DateTimeField::new('createdAt', 'Création')->hideOnForm()
+            EmailField::new('email'),
+            TextField::new('firstname', 'Prénom'),
+            TextField::new('lastname', 'Nom'),
+            ArrayField::new('roles', 'Rôles')->hideOnForm(),
         ];
     }
-
 }

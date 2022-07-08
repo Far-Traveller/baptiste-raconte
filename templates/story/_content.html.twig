@@ -12,6 +12,7 @@
     </div>
     <a class="a-last-news" href="{{ path('app_story_show', {slug: story.slug}) }}">
         <h3 class="h2 yellow-line">{{ story.title }}</h3>
+        <p class="date-publi">Publiée le {{ story.createdAt.format('d/m/Y') }}</p>
         <p class="summary">{{ story.summary }}</p>
     </a>
 </div>

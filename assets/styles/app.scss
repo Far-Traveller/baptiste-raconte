@@ -235,8 +235,14 @@ footer {
 .div-last-news:hover .img-last-news {
   transform: scale(1.15);
 }
+.date-publi{
+  font-size: 0.9em;
+  color: $dark-gray;
+  font-style: italic;
+  //margin-bottom: ;
+}
 
-.summary {
+.summary, .date-publi {
   padding-left: 5%;
 }
 

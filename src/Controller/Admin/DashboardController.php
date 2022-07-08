@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Contact;
 use App\Entity\Story;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -30,6 +31,7 @@ class DashboardController extends AbstractDashboardController
 
         $urls = $adminUrlGenerator
             ->setController(ContactCrudController::class)
+            ->setController(UserCrudController::class)
             ->setController(StoryCrudController::class)
             ->generateUrl();
 
@@ -49,6 +51,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)
             ->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)
+            ->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-address-card', User::class)
             ->setPermission('ROLE_ADMIN');
     }
 }

@@ -40,7 +40,7 @@ class StoryCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
             SlugField::new('slug')->setTargetFieldName('title')
-                ->setHelp("Ne pas toucher et ne doit pas être vide-> si c'est le cas, ajouter un espace dans le titre"),
+                ->setHelp("Doit correspondre au titre sans les espaces, les accents et autres caractères spéciaux. Uniquement des lettres, chiffres, tirets - et _"),
             ImageField::new('image')
                 ->setBasePath(self::PRODUCTS_BASE_PATH)
                 ->setUploadDir(self::PRODUCTS_UPLOAD_DIR)
@@ -49,8 +49,8 @@ class StoryCrudController extends AbstractCrudController
             TextField::new('summary', 'Résumé')
                 ->setHelp('Maximum 255 caractères : te trompe pas, sinon ça va supprimer tout le texte entré en haut, je cherche encore comment changer ça !!'),
             TextEditorField::new('text', 'Texte'),
-            DateTimeField::new('createdAt', 'Création')->hideOnForm(),
-            DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
+            DateTimeField::new('createdAt', 'Création')->setTimezone('Europe/Paris')->hideOnForm(),
+            DateTimeField::new('updatedAt', 'Mise à jour')->setTimezone('Europe/Paris')->hideOnForm()
         ];
     }
 
