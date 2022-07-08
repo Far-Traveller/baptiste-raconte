@@ -39,17 +39,16 @@ class StoryCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
+            SlugField::new('slug')->setTargetFieldName('title')
+                ->setHelp("Ne pas toucher et ne doit pas être vide-> si c'est le cas, ajouter un espace dans le titre"),
             ImageField::new('image')
                 ->setBasePath(self::PRODUCTS_BASE_PATH)
                 ->setUploadDir(self::PRODUCTS_UPLOAD_DIR)
                 ->setSortable(false)
-                ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]')
-                ->setHelp('Mettre, de préférence, une image carrée'),
+                ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]'),
             TextField::new('summary', 'Résumé')
-                ->setHelp('Maximum 255 caractères'),
+                ->setHelp('Maximum 255 caractères : te trompe pas, sinon ça va supprimer tout le texte entré en haut, je cherche encore comment changer ça !!'),
             TextEditorField::new('text', 'Texte'),
-            SlugField::new('slug')->setTargetFieldName('title')
-                ->setHelp('Ne doit pas être vide'),
             DateTimeField::new('createdAt', 'Création')->hideOnForm(),
             DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
         ];

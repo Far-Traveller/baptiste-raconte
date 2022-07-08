@@ -7,11 +7,13 @@
         {% for message in app.flashes('success') %}
             <div class="alert alert-success mt-4">
                 {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
         {% for message in app.flashes('warning') %}
             <div class="alert alert-warning mt-4">
                 {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
     </div>
@@ -67,8 +69,13 @@
                         {% for story in favorite_stories %}
                             <a class="col-lg-2" href="{{ path('app_story_show', {slug: story.slug}) }}">
                                 <div class="text-center">
-                                    <img loading="lazy" class="rounded-circle img-fav-full"
-                                         src="/images/upload/{{ story.image }}" alt="illustration"/>
+                                    {% if story.image %}
+                                        <img loading="lazy" class="rounded-circle img-fav-full"
+                                             src="/images/upload/{{ story.image }}" alt="illustration"/>
+                                    {% else %}
+                                        <img loading="lazy" class="rounded-circle img-fav-full"
+                                             src="{{ asset('/images/logobleu.png') }}" alt="illustration"/>
+                                    {% endif %}
                                 </div>
                                 <p class="fav-full-p">{{ story.title }}</p>
                             </a>

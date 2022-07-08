@@ -48,6 +48,11 @@ class SecurityController extends AbstractController
                                       MailerInterface         $mailer
     ): Response
     {
+
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
+
         $form = $this->createForm(ResetPasswordRequestFormType::class);
 
         $form->handleRequest($request);
@@ -90,7 +95,7 @@ class SecurityController extends AbstractController
             }
 
             //$user = null
-            //$this->addFlash('danger', 'Un problème est survenu');
+            $this->addFlash('danger', 'Un problème est survenu');
             return $this->redirectToRoute('app_login');
         }
 
@@ -108,6 +113,10 @@ class SecurityController extends AbstractController
         UserPasswordHasherInterface $userPasswordHasher
     ): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
+
         // Check if token is in database
         $user = $userRepository->findOneByResetToken($token);
 
