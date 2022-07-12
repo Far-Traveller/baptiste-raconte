@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: StoryRepository::class)]
@@ -34,9 +36,14 @@ class Story
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $updatedAt;
 
+    #[ORM\OneToMany(mappedBy: 'story', targetEntity: Comment::class, orphanRemoval: true)]
+    #[ORM\OrderBy(['createdAt' => 'DESC'])]
+    private $comments;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -124,6 +131,36 @@ class Story
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setStory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getStory() === $this) {
+                $comment->setStory(null);
+            }
+        }
 
         return $this;
     }

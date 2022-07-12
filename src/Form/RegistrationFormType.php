@@ -12,12 +12,33 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Unique;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('username', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'El_anillo'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci d\'entrer un pseudo',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Votre pseudo doit avoir au moins {{ limit }} caractères',
+                        'max' => 30,
+                        'maxMessage' => 'Votre pseudo doit avoir au maximum {{ limit }} caractères',
+                    ]),
+                    new Regex([
+                        'pattern' => "#^[a-zA-Z]\w{5,30}[^_]$#",
+                        'message' => 'Il doit commencer par une lettre et ne peut contenir que des lettres, chiffres et underscores',
+                    ])
+                ],
+            ])
             ->add('firstname', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Frodon'
@@ -52,10 +73,9 @@ class RegistrationFormType extends AbstractType
                     new Regex([
                         'pattern' => '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#',
                         'message' => 'Doit comporter au moins 1 chiffre, 1 caractère spécial, 1 miniscule et 1 majuscule',
-                        ]),
+                    ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

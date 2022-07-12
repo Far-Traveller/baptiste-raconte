@@ -26,6 +26,7 @@ class AppFixtures extends Fixture
         $userAdmin->setRoles(['ROLE_ADMIN']);
         $userAdmin->setFirstname($firstNames[0]);
         $userAdmin->setLastname($lastNames[0]);
+        $userAdmin->setUsername('The-artist');
         $password = $this->hasher->hashPassword($userAdmin, 'Admin123+');
         $userAdmin->setPassword($password);
         $manager->persist($userAdmin);
@@ -35,6 +36,7 @@ class AppFixtures extends Fixture
             $user->setEmail('user'.$i.'@user.fr');
             $user->setFirstname($firstNames[$i]);
             $user->setLastname($lastNames[$i]);
+            $user->setUsername($firstNames[$i]);
             $password = $this->hasher->hashPassword($user, 'User123+');
             $user->setPassword($password);
             $manager->persist($user);
