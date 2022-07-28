@@ -4,6 +4,21 @@
 
 {% block body %}
 
+    <div class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-4">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning mt-4">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+
     <section id="story-btn">
         <div class="btn-light-night btn-night">
             <i class="fa-solid fa-moon fa-2xl icon-night"></i>
@@ -49,6 +64,11 @@
     <section id="story-text" class="light-bg">
         <div class="container">
             <div class="story-p">{{ story.text | raw }}</div>
+            <div class="story-comments">
+                <span class="comment-count">{{ story.comments|length }} commentaires</span>
+                <hr>
+                {% include "comment/index.html.twig" %}
+            </div>
         </div>
     </section>
 

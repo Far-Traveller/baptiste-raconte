@@ -1,0 +1,20 @@
+<div class="container flex-container-reverse">
+    <div class="form-container">
+        {{ form_start(commentForm) }}
+        <div class="form-group">
+            {{ form_row(commentForm.content, {
+                label: 'Commentaire',
+                attr: {'class': 'form-control'}
+            }) }}
+        </div>
+        <div class="form-btn">
+            <button class="btn btn-dark" type="submit">
+                Envoyer
+            </button>
+        </div>
+        {{ form_end(commentForm) }}
+    </div>
+    <div class="form-logo">
+        <img loading="lazy" src="{{ asset('images/logobleu.png') }}" alt="logo-baptiste-raconte"/>
+    </div>
+</div>

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Story;
+use App\Form\CommentFormType;
 use App\Repository\StoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,10 +33,17 @@ class StoryController extends AbstractController
             $favorite_stories = $this->getUser()->getStories();
         }
 
+
+        //Form for comments
+        $comment = new Comment();
+
+        $commentForm = $this->createForm(CommentFormType::class);
+
         return $this->render('story/show.html.twig', [
             'controller_name' => 'StoryController',
             'story' => $story,
-            'favorite_stories' => $favorite_stories
+            'favorite_stories' => $favorite_stories,
+            'commentForm' => $commentForm->createView()
         ]);
     }
 

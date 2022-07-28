@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -30,9 +31,11 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private $user;
 
-    public function __construct()
+    public function __construct(Story $story, UserInterface $user)
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->story = $story;
+        $this->user = $user;
     }
 
     public function getId(): ?int

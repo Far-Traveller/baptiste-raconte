@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Comment;
 use App\Entity\Contact;
 use App\Entity\Story;
 use App\Entity\User;
@@ -48,10 +49,15 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToRoute('Retour vers le site', 'fas fa-undo', 'app_homepage');
-        yield MenuItem::section('Gestion')->setPermission('ROLE_ADMIN');
+
+        yield MenuItem::section('Gestion des nouvelles')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Nouvelles', 'fas fa-book-open', Story::class)
             ->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Messages', 'fas fa-message', Contact::class)
+        yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment', Comment::class)
+            ->setPermission('ROLE_ADMIN');
+
+        yield MenuItem::section('Gestion des utilisateurs')->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Messages reçus', 'fas fa-message', Contact::class)
             ->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-address-card', User::class)
             ->setPermission('ROLE_ADMIN');
