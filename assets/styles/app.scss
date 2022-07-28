@@ -306,6 +306,7 @@ footer {
 .story-p {
   color: $dark-gray;
   line-height: 2.5em;
+  text-align: justify;
 }
 
 .btn-up {
@@ -622,6 +623,9 @@ form label {
   }
   #story-text {
     padding: 50px 90px;
+  }
+  .story-p {
+    padding: 0 20%;
   }
   .btn-up {
     right: 20px;
