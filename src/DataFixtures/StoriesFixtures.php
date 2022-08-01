@@ -11,7 +11,7 @@ class StoriesFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
-        for ($i = 0; $i < 12; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $story = new Story();
             $story->setTitle('Nouvelle ' . $i + 1);
             $story->setSlug('nouvelle_' . $i + 1);

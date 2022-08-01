@@ -45,7 +45,8 @@ class StoryCrudController extends AbstractCrudController
                 ->setBasePath(self::PRODUCTS_BASE_PATH)
                 ->setUploadDir(self::PRODUCTS_UPLOAD_DIR)
                 ->setSortable(false)
-                ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]'),
+                ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]')
+                ->setHelp('Taille maximale : 2 Mb'),
             TextField::new('summary', 'Résumé')
                 ->setHelp('Maximum 255 caractères : te trompe pas, sinon ça va supprimer tout le texte entré en haut, je cherche encore comment changer ça !!'),
             TextEditorField::new('text', 'Texte'),
