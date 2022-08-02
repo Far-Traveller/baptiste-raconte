@@ -48,7 +48,12 @@ class StoryCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[day]-[month]-[year]-[contenthash].[extension]')
                 ->setHelp('Taille maximale : 2 Mb'),
             TextField::new('summary', 'Résumé')
-                ->setHelp('Maximum 255 caractères : te trompe pas, sinon ça va supprimer tout le texte entré en haut, je cherche encore comment changer ça !!'),
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'maxlength' => 255
+                    ]
+                ])
+                ->setHelp('Maximum 255 caractères'),
             TextEditorField::new('text', 'Texte'),
             DateTimeField::new('createdAt', 'Création')->setTimezone('Europe/Paris')->hideOnForm(),
             DateTimeField::new('updatedAt', 'Mise à jour')->setTimezone('Europe/Paris')->hideOnForm()

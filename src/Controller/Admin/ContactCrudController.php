@@ -22,7 +22,8 @@ class ContactCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
+            ->remove(Crud::PAGE_INDEX, Action::NEW)
+            ->disable(Action::EDIT);
     }
 
     public function configureCrud(Crud $crud): Crud
