@@ -18,27 +18,27 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $firstNames = array('Splinter', 'Leonardo', 'Raphael', 'Donatello', 'Michelangelo');
-        $lastNames = array('Sacquet', 'Parker', 'Zelda', 'Croft', 'Lovegood');
+//        $firstNames = array('Splinter', 'Leonardo', 'Raphael', 'Donatello', 'Michelangelo');
+//        $lastNames = array('Sacquet', 'Parker', 'Zelda', 'Croft', 'Lovegood');
 
         $userAdmin = new User();
-        $userAdmin->setEmail('admin@admin.fr');
+        $userAdmin->setEmail('baptallione@gmail.com');
         $userAdmin->setRoles(['ROLE_ADMIN']);
-        $userAdmin->setFirstname($firstNames[0]);
-        $userAdmin->setLastname($lastNames[0]);
-        $password = $this->hasher->hashPassword($userAdmin, 'Admin123+');
+        $userAdmin->setFirstname('Baptiste');
+        $userAdmin->setLastname('Allione');
+        $password = $this->hasher->hashPassword($userAdmin, 'mH,5Av!T4g9!');
         $userAdmin->setPassword($password);
         $manager->persist($userAdmin);
 
-        for ($i = 1; $i < 5; $i++) {
-            $user = new User();
-            $user->setEmail('user'.$i.'@user.fr');
-            $user->setFirstname($firstNames[$i]);
-            $user->setLastname($lastNames[$i]);
-            $password = $this->hasher->hashPassword($user, 'User123+');
-            $user->setPassword($password);
-            $manager->persist($user);
-        }
+//        for ($i = 1; $i < 5; $i++) {
+//            $user = new User();
+//            $user->setEmail('user'.$i.'@user.fr');
+//            $user->setFirstname($firstNames[$i]);
+//            $user->setLastname($lastNames[$i]);
+//            $password = $this->hasher->hashPassword($user, 'User123+');
+//            $user->setPassword($password);
+//            $manager->persist($user);
+//        }
 
         $manager->flush();
 
