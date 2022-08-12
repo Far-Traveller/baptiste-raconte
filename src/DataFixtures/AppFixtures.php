@@ -21,6 +21,7 @@ class AppFixtures extends Fixture
 //        $firstNames = array('Splinter', 'Leonardo', 'Raphael', 'Donatello', 'Michelangelo');
 //        $lastNames = array('Sacquet', 'Parker', 'Zelda', 'Croft', 'Lovegood');
 
+
         $userAdmin = new User();
         $userAdmin->setEmail('baptallione@gmail.com');
         $userAdmin->setRoles(['ROLE_ADMIN']);
