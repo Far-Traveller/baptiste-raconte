@@ -31,11 +31,17 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private $user;
 
-    public function __construct(Story $story, UserInterface $user)
+    //not working???
+//    public function __construct(Story $story, UserInterface $user)
+//    {
+//        $this->createdAt = new \DateTimeImmutable();
+//        $this->story = $story;
+//        $this->user = $user;
+//    }
+
+    public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
-        $this->story = $story;
-        $this->user = $user;
     }
 
     public function getId(): ?int

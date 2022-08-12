@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Comment;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -19,21 +20,39 @@ class CommentCrudController extends AbstractCrudController
         return Comment::class;
     }
 
-    public function configureActions(Actions $actions): Actions
+    public function configureCrud(Crud $crud): Crud
     {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
+        return $crud
+            // Change title of pages
+            ->setPageTitle('index', 'Commentaires')
+            ->setPageTitle('edit', 'Modifier un commentaire')
+            ;
     }
+
+//    public function configureActions(Actions $actions): Actions
+//    {
+//        return $actions
+//            ->remove(Crud::PAGE_INDEX, Action::NEW);
+//    }
 
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
-            TextField::new('comment'),
             AssociationField::new('user', 'Utilisateur'),
-            AssociationField::new('story', 'Nouvelles'),
+            AssociationField::new('story', 'Nouvelle'),
+            TextField::new('content', 'Contenu'),
             DateTimeField::new('createdAt', 'Création')->hideOnForm(),
             DateTimeField::new('updatedAt', 'Mise à jour')->hideOnForm()
         ];
+    }
+
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        if (!$entityInstance instanceof Comment) return;
+
+        $entityInstance->setUpdatedAt(new \DateTimeImmutable());
+
+        parent::updateEntity($entityManager, $entityInstance);
     }
 }

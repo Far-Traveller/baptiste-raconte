@@ -33,10 +33,6 @@ class StoryController extends AbstractController
             $favorite_stories = $this->getUser()->getStories();
         }
 
-
-        //Form for comments
-        $comment = new Comment();
-
         $commentForm = $this->createForm(CommentFormType::class);
 
         return $this->render('story/show.html.twig', [

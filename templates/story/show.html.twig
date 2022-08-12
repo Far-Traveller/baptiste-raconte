@@ -63,9 +63,17 @@
 
     <section id="story-text" class="light-bg">
         <div class="container">
+            {# Text of the story #}
             <div class="story-p">{{ story.text | raw }}</div>
+
+            {# Number of comments #}
             <div class="story-comments">
-                <span class="comment-count">{{ story.comments|length }} commentaires</span>
+                {% if story.comments.count > 1 %}
+                    <span class="comment-count">{{ story.comments|length }} commentaires</span>
+                {% else %}
+                    <span class="comment-count">{{ story.comments|length }} commentaire</span>
+                {% endif %}
+                {#                missing : texts comments#}
                 <hr>
                 {% include "comment/index.html.twig" %}
             </div>
